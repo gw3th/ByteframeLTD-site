@@ -112,6 +112,20 @@ button {
     background: none;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent ;
+}
+
+  ::selection {
+  background: rgba(186, 88, 35, 0.412);
+  color: inherit;
+  }
+
+  ::-moz-selection {
+  background: rgba(186, 88, 35, 0.412);
+  color: inherit;
+}
+
 /* ==========================================
    LOADING SCREEN
    ========================================== */
@@ -149,6 +163,8 @@ button {
     animation: loaderPulse 2s ease-in-out infinite;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
     -webkit-filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @keyframes loaderPulse {
@@ -1289,5 +1305,11 @@ section {
     
     .process-timeline {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px){
+    .scroll-indicator{
+        display: none;
     }
 }
