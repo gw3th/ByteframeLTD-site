@@ -792,7 +792,7 @@ section {
    WORK/PORTFOLIO SECTION
    ========================================== */
 .work {
-    background: linear-gradient(180deg, var(--color-light) 0%, var(--color-white) 100%);;
+    background: linear-gradient(180deg, var(--color-light) 0%, var(--color-white) 100%);
 }
 
 .work-grid {
@@ -896,6 +896,262 @@ section {
 
 .work-link:hover {
     gap: 0.75rem;
+}
+
+/* ==========================================
+   FOUNDERS SECTION
+   ========================================== */
+
+.founders {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(180deg, var(--color-light) 0%, var(--color-white) 100%);
+}
+
+.founders-content {
+    margin-top: var(--spacing-3xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3xl);
+}
+
+.founder-card {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+    padding: var(--spacing-xl);
+    background-color: var(--color-white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+    transform: scaleY(0);
+    transition: transform var(--transition-slow);
+    transform-origin: top;
+}
+
+.founder-card:hover::before {
+    transform: scaleY(1);
+}
+
+.founder-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Reverse layout for alternating style */
+.founder-card.reverse {
+    grid-template-columns: 1.2fr 1fr;
+}
+
+.founder-card.reverse .founder-image {
+    order: 2;
+}
+
+.founder-card.reverse .founder-info {
+    order: 1;
+}
+
+.founder-card.reverse::before {
+    left: auto;
+    right: 0;
+}
+
+/* Founder Image */
+.founder-image {
+    position: relative;
+}
+
+.founder-image .image-placeholder {
+    aspect-ratio: 3/4;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+}
+
+.founder-image .image-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.image-label {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    position: relative;
+}
+
+/* When you add real photos, add this class to the image and remove .image-placeholder */
+.founder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Founder Info */
+.founder-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.founder-name {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-dark);
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+}
+
+.founder-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.founder-bio {
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Contact Info */
+.founder-contact {
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid var(--color-light-3);
+    border-bottom: 1px solid var(--color-light-3);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color var(--transition-base);
+    font-size: var(--font-size-base);
+}
+
+.contact-item:hover {
+    color: var(--color-primary);
+}
+
+.contact-item svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.contact-item span {
+    font-weight: 500;
+}
+
+/* Social Links */
+.founder-social {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.founder-social .social-link {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-light);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    transition: all var(--transition-base);
+    text-decoration: none;
+}
+
+.founder-social .social-link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.founder-social .social-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .founder-card,
+    .founder-card.reverse {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .founder-card.reverse .founder-image,
+    .founder-card.reverse .founder-info {
+        order: initial;
+    }
+
+    .founder-image .image-placeholder {
+        aspect-ratio: 16/10;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .founder-name {
+        font-size: var(--font-size-2xl);
+    }
+
+    .founders-content {
+        gap: var(--spacing-2xl);
+    }
+}
+
+@media (max-width: 640px) {
+    .founder-card {
+        padding: var(--spacing-lg);
+    }
+
+    .founder-image .image-placeholder {
+        aspect-ratio: 1/1;
+    }
+
+    .image-label {
+        font-size: 3rem;
+    }
+
+    .founder-social {
+        justify-content: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+    }
 }
 
 /* ==========================================
