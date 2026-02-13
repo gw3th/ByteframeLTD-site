@@ -14,14 +14,16 @@
     <!-- Navigation -->
     <nav class="nav" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                 <!-- <img src="assets/logo-dark.svg" alt="Byteframe" class="logo-dark"> -->
                 <img src="assets/logos/Byteframe logo (light)-xbg.png" alt="Byteframe" class="logo-light">
             </a>
             <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#work" class="nav-link">Work</a>
+                <a href="pages/community.html" class="nav-link">Community</a>
                 <a href="#contact" class="nav-link nav-link-cta">Get Started</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -35,6 +37,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-background">
+            <video autoplay muted playsinline src="assets/vids/Minimalist_Tech_Background_Video_Generation.mp4"></video>
             <div class="hero-grid"></div>
         </div>
         <div class="container">
@@ -89,7 +92,7 @@
                     </p>
                 </div>
                 <div class="about-features">
-                    <div class="feature-card">
+                    <div class="feature-card slide-in-left">
                         <div class="feature-icon">⚡</div>
                         <h3>Modern Stack</h3>
                         <p>Latest technologies ensuring your product stays ahead of the curve</p>
@@ -190,11 +193,11 @@
             </div>
             <div class="hero-stats">
                 <div class="stat-item">
-                    <div class="stat-number">50+</div>
+                    <div class="stat-number">5+</div>
                     <div class="stat-label">Projects Delivered</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">98%</div>
+                    <div class="stat-number">100%</div>
                     <div class="stat-label">Client Satisfaction</div>
                 </div>
                 <div class="stat-item">
@@ -263,20 +266,19 @@
                 <article class="work-item">
                     <div class="work-image">
                         <div class="work-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <img src="assets/images/isuzu-migori-shop.png" alt="">
                             <span class="work-category">E-commerce</span>
                         </div>
                     </div>
                     <div class="work-content">
-                        <h3 class="work-title">Crafted Kenya Store</h3>
+                        <h3 class="work-title">ISUZU Migori Shop</h3>
                         <p class="work-description">
-                            Premium e-commerce platform showcasing Kenyan artisan products to global markets. 
-                            Custom checkout flow and international shipping integration.
+                            Premium e-commerce platform showcasing Kenyan automotive products to local and global markets. 
+                            Custom checkout flow and secure payment integration.
                         </p>
                         <div class="work-tags">
-                            <span>Shopify</span>
                             <span>Custom Theme</span>
-                            <span>Stripe</span>
-                            <span>Multi-currency</span>
+                            <span>M-pesa API</span>
                         </div>
                         <a href="#" class="work-link">View Case Study →</a>
                     </div>
