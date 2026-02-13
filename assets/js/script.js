@@ -1,3 +1,76 @@
+/* ==========================================
+   LOADING SCREEN JAVASCRIPT
+   ========================================== */
+
+// Prevent scrolling while loading
+document.body.classList.add('loading');
+
+// Simulated progress bar animation
+let progress = 0;
+let progressInterval;
+
+function updateProgress() {
+    const progressBar = document.querySelector('.loader-progress');
+    if (!progressBar) return;
+    
+    progressInterval = setInterval(() => {
+        if (progress >= 90) {
+            clearInterval(progressInterval);
+        } else {
+            // Increment progress with random jumps for natural feel
+            progress += Math.random() * 15;
+            progressBar.style.width = Math.min(progress, 90) + '%';
+        }
+    }, 200);
+}
+
+// Start progress animation when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateProgress);
+} else {
+    updateProgress();
+}
+
+// Hide loader when everything is loaded
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.loader-wrapper');
+    const progressBar = document.querySelector('.loader-progress');
+    
+    if (loader && progressBar) {
+        // Clear any existing interval
+        if (progressInterval) {
+            clearInterval(progressInterval);
+        }
+        
+        // Complete the progress bar
+        progressBar.style.width = '100%';
+        
+        // Wait a moment then hide the loader
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            document.body.classList.remove('loading');
+            
+            // Remove loader from DOM after fade out
+            setTimeout(() => {
+                loader.remove();
+            }, 500);
+        }, 300);
+    }
+});
+
+// Fallback: Hide loader after 5 seconds if page hasn't fully loaded
+setTimeout(() => {
+    const loader = document.querySelector('.loader-wrapper');
+    if (loader && !loader.classList.contains('hidden')) {
+        console.warn('Loader timeout - forcing hide');
+        loader.classList.add('hidden');
+        document.body.classList.remove('loading');
+        setTimeout(() => loader.remove(), 500);
+    }
+}, 5000);
+
+
+
 // ==========================================
 // INITIALIZATION - Mark that JavaScript is enabled
 // ==========================================
